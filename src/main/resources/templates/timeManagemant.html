@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>勤怠管理</title>
+<link rel="stylesheet" href="css/timeManagemant.css">
+</head>
+<body>
+    <ul>
+        <form th:action="@{/timeManagemant}" method="get">
+            <li><button type="submit">勤怠入力</button></li>
+        </form>
+        <li><a href="workLocation.html">勤務先登録</a></li>
+        <li><a href="contact.html">連絡先登録</a></li>
+        <li><a href="history.html">勤務履歴一覧表示</a></li>
+        <form th:action="@{/diligence}" method="get">
+            <li><button type="submit">勤怠状況一覧表示</button></li>
+        </form>
+        <li><a href="logout.html">ログアウト</a></li>
+    </ul>
+    <h2>退勤管理</h2>
+    <p>こんにちは、○○○さん</p>
+    <p>状態：未出勤</p>
+    <p id="date">---</p>
+
+
+    <form th:action="@{/timeManagemant}" method="post">
+        <button class="btn-square" name="attendance">出勤</button>
+    </form>
+    <button class="btn-square" onclick="finishWork()">退勤</button>
+    <br>
+    <button class="btn-square" onclick="startBreakTime()">休憩開始</button>
+    <button class="btn-square" onclick="endBreakTime()">休憩終了</button>
+    <script src="javascript/timeManagement.js"></script>
+</body>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link th:href="@{/style/cssandjs/users.css}" rel="stylesheet" />
+</head>
+<body>
+<h2>ユーザー一覧</h2>
+<form action="/users/add">
+    <button type="submit">ユーザー新規登録</button>
+</form>
+
+<table border="0">
+    <tr>
+        <th>ID</th>
+        <th>氏名</th>
+        <th>部署</th>
+        <th>権限</th>
+    </tr>
+    <tr th:each="users : ${users}">
+        <td th:text="${users.id}"></td>
+        <td th:text="${users.name}"></td>
+        <td th:text="${users.role}"></td>
+        <td><a th:href="@{#}">編集</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

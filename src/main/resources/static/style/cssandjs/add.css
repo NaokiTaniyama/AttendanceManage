@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(184, 217, 217);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+    text-align: right;
+    padding: 0;
+    position: relative;
+  }
+
+  li {
+    display: inline;
+    color: #2d8fdd;
+    border-left: solid 6px #2d8fdd;/*左側の線*/
+    background: #4ce1af;/*背景色*/
+    margin-bottom: 3px;/*下のバーとの余白*/
+    line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;/*ポチ消す*/
+  }

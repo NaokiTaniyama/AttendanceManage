@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新規作成</title>
+    <link th:href="@{/style/cssandjs/add.css}" rel="stylesheet" />
+</head>
+<body>
+<h2>ユーザー新規作成</h2>
+
+<form th:action="@{/users/create}" method="post">
+    <label>ユーザー名</label>
+    <input type="text" name="userName"><br>
+    <label>パスワード</label>
+    <input type="text" name="password"><br>
+    <select name="roleList">
+        <option value="ROLE_USER">一般ユーザー</option>
+        <option value="ROLE_ADMIN">管理者</option>
+    </select>
+    <button type="submit">登録</button>
+</form>
+
+
+</body>
+</html>

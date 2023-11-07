@@ -40,7 +40,7 @@ public class UserRepository {
         String role = user.getRole();
         int division_id = user.getDivision_id();
 
-        String sql = "UPDATE users SET (id, password, name, role, division_id) = (" + id + ", " + password + ", " + name + ", " + role + ", " + division_id + ") WHERE = id == " + id;
+        String sql = "UPDATE users SET (id, password, name, role, division_id) = (" + id + ", '" + password + "', '" + name + "', '" + role + "', " + division_id + ") WHERE id=" + id;
         //sql文 確認用のLog
         System.out.println(sql);
         jdbcTemplate.update(sql);
@@ -73,15 +73,14 @@ public class UserRepository {
     }
 
     public User findById(int id){
-        String sql = "SELECT id = " + id + "FROM users";
-        List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
-        Map<String, Object> map = result.get(0);
+        String sql = "SELECT * FROM users WHERE id = " + id;
+        Map<String, Object> result = jdbcTemplate.queryForMap(sql);
         User user = new User();
-        user.setId(((int)map.get("id")));
-        user.setPassword(((String)map.get("password")));
-        user.setName(((String)map.get("name")));
-        user.setRole(((String)map.get("role")));
-        user.setDivision_id(((int)map.get("division_id")));
+        user.setId(((int)result.get("id")));
+        user.setPassword(((String)result.get("password")));
+        user.setName(((String)result.get("name")));
+        user.setRole(((String)result.get("role")));
+        user.setDivision_id(((int)result.get("division_id")));
 
         return user;
     }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ユーザー編集</title>
+  <link th:href="@{/style/cssandjs/edit.css}" rel="stylesheet" />
+</head>
+<body>
+<h2>ユーザー編集</h2>
+
+<form th:action="@{/users/update/{id}(id=${user.id})}" method="post">
+<!--  <span value="${user.id}" name="userId" th:text="${user.id}"></span>-->
+  <label>ユーザー名</label>
+  <input type="text" name="userName"><br>
+  <label>パスワード</label>
+  <input type="text" name="password"><br>
+  <select name="roleList">
+    <option value="ROLE_USER">一般ユーザー</option>
+    <option value="ROLE_ADMIN">管理者</option>
+  </select>
+  <button type="submit">更新</button>
+</form>
+
+
+</body>
+</html>

@@ -22,9 +22,9 @@
         <td th:text="${users.id}"></td>
         <td th:text="${users.name}"></td>
         <td th:text="${users.role}"></td>
-        <td><a th:href="@{#}">編集</a></td>
+        <td><a th:href="@{/users/edit/{id}(id=${users.id})}">編集</a></td>
+
     </tr>
 </table>
-
 </body>
 </html>

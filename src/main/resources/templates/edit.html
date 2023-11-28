@@ -20,6 +20,9 @@
   </select>
   <button type="submit">更新</button>
 </form>
+<form th:action="@{/users/delete/{id}(id=${user.id})}" method="post">
+  <button type="submit">削除</button>
+</form>
 
 
 </body>

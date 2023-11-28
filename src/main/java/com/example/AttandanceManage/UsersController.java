@@ -37,12 +37,11 @@ public class UsersController {
         user.setRole(roleList);
         userRepository.insert(user);
         model.addAttribute("users", userRepository.findAll());
-        return "users";
+        return "redirect:/users";
     }
 
     @GetMapping("/users/edit/{id}")
     public String edit(@PathVariable int id, Model model){
-        model.addAttribute("Hello", "こんにちは");
         model.addAttribute("user", userRepository.findById(id));
         return "edit";
     }
@@ -57,8 +56,16 @@ public class UsersController {
         user.setId(id);
         userRepository.update(user);
         model.addAttribute("users", userRepository.findAll());
-        return "users";
+        return "redirect:/users";
     }
 
+    @PostMapping("/users/delete/{id}")
+    public String delete(@ModelAttribute User user, @PathVariable int id,
+                         Model model){
+        user.setId(id);
+        userRepository.delete(user);
+        model.addAttribute("users", userRepository.findAll());
+        return "redirect:/users";
+    }
 
 }
